@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>CNIT 133 - Homework 8</title>
+  <meta name="description" content="Web Page for Homework Assignment 8 of CNIT 133 - Javascript">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="css/styles.css">
+    <style>
+        
+    
+      body {
+          background-color:cadetblue
+      }
+         #holygrail-container{display:grid; grid-template-columns: 190px 1fr 190px; background: cadetblue; height: 100%; min-width: 400px; min-height: 270px;
+         }
+        
+         header, footer {grid-column: span 4;
+                        }
+         
+         nav {display: inline; padding-bottom: 25px; display: flex; align-items: center;
+             }
+           
+            nav ul{list-style-type:none; padding:0; 
+                  }
+            
+            nav ul li{ display: inline-block;
+                       margin:0 5px;
+                       border:2px solid black;
+                      border-radius: 10px;
+                       margin-right: 350px;
+                       background-color: cadetblue;
+                       text-align:center;
+                       width: 150px;
+                       height: 30px; 
+                       line-height:30px;
+                        margin-bottom: 5px;}
+            
+            nav ul li a {text-decoration: none; font-weight: bold; color:white;
+                        }
+         
+         ul li { list-style-type: none; 
+          }
+ </style>
+
+</head>
+
+<body>
+    
+     <nav>
+    <ul>
+            <li><a href="https://pettycarlos.github.io/CNIT-133-Homework-1/">Homepage</a></li>
+             <li><a href="https://pettycarlos.github.io/hw2/">Homework 2</a></li>
+            <li><a href= "hw3.html">Homework 3</a></li>
+            <li><a href= "https://pettycarlos.github.io/CNIT-133-hw4/">Homework 4</a></li>
+            <li><a href="https://pettycarlos.github.io/hw5/">Homework 5</a></li>
+            <li><a href="https://pettycarlos.github.io/hw6/">Homework 6</a></li>
+            <li><a href= "https://pettycarlos.github.io/hw7/">Homework 7</a></li>
+            <li><a href="https://pettycarlos.github.io/hw8/">Homework 8</a></li>
+            
+        </ul>
+            </nav>
+  <div>
+    <div>
+      <h1>Homework 8</h1>
+      <p>Ajax Applications</p>
+    </div>
+  </div>
+
+  <!-- Main Body Content -->
+
+  <section>
+    
+    <div class="hw4-part1-divbox">
+
+      <h2>Enter A First Name</h2>
+
+      <br>
+
+      <form>
+        <div>
+          <label for="fname" class="col-4 col-form-label">First Name:</label>
+          <div>
+            <input type="text" class="form-control" id="fname" name="fname" onkeyup="showHint(this.value)" placeholder="">
+          </div>
+        </div>
+
+        <div>
+          <p>Name Suggestion:</p>
+          <div>
+            <textarea class="form-control" rows="1" name="suggestion" id="nameSug" readonly></textarea>
+          </div>
+        </div>
+
+      </form>
+
+      <br>
+
+      <h2>Google Maps</h2>
+
+      <p>Google Maps is <span class="the">the</span> Google Maps  is the most popular SDK for embedding a map into an application. It’s known for its huge database of places and decent routing. It has all the features of Google Maps for mobile app: geocoding, routing, pictures, street view, and places information. That app is actually based on SDK available for public usage. This means that your users will be absolutely comfortable using a map from Google because they most likely are already familiar with it .<br><br>The full documentation can be found here: <a href="https://www.uptech.team/blog/mapbox-vs-google-maps-vs-openstreetmap">Mapbox Vs Google Maps: What Maps API Is Best For Your App?</a></p>
+
+    </div>
+
+   
+    
+  </section>
+    
+    
+
+  
+  <script>
+    function showHint(str) {
+      if (str.length == 0) {
+        document.getElementById("nameSug").innerHTML = "";
+        return;
+      } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("nameSug").innerHTML = this.responseText;
+          }
+        };
+        xmlhttp.open("GET", "gethint.php?q=" + str, true);
+        xmlhttp.send();
+      }
+    }
+  </script>
+    
+
+  
+</body>
+
+</html>
